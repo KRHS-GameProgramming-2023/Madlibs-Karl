@@ -1,0 +1,35 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/definitions.rpy", line 3, in script
+    default config.developer = False
+  File "game/definitions.rpy", line 3, in script
+    default config.developer = False
+  File "game/definitions.rpy", line 3, in execute
+    default config.developer = False
+  File "renpy/common/000namespaces.rpy", line 36, in set_default
+    raise Exception("The default statement can not be used with the {} namespace.".format(self.name))
+Exception: The default statement can not be used with the config namespace.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/bootstrap.py", line 277, in bootstrap
+    renpy.main.main()
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/main.py", line 558, in main
+    renpy.game.context().run(node)
+  File "game/definitions.rpy", line 3, in script
+    default config.developer = False
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
+  File "game/definitions.rpy", line 3, in script
+    default config.developer = False
+  File "game/definitions.rpy", line 3, in execute
+    default config.developer = False
+  File "renpy/common/000namespaces.rpy", line 36, in set_default
+    raise Exception("The default statement can not be used with the {} namespace.".format(self.name))
+Exception: The default statement can not be used with the config namespace.
+
+Linux-5.15.74-3-MANJARO-x86_64-with-glibc2.36 x86_64
+Ren'Py 8.0.3.22090809
+pain hell
+Tue Oct 25 10:07:03 2022

@@ -1,0 +1,2 @@
+label sotry1:
+    call ifDebug("sotry1 is running")
