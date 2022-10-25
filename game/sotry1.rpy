@@ -73,11 +73,11 @@ label sotry1:
     char0 'Breakfast will be ready in 20 minutes.'
     char1 'Thanks'
     'I search for and find a mirror'
-    
+
     scene dynamic_bg bedroom_mirror
     char1 "Damn it,{cps=1} {/cps}It's an isekai"
     python:
-        if character[0][CharGender] == Female:
+        if character[0][CharGender] == "Female":
             prevGender = "male"
         else:
             prevGender = "female"
