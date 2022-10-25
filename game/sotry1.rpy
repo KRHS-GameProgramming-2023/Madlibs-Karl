@@ -77,11 +77,11 @@ label sotry1:
     scene dynamic_bg bedroom_mirror
     char1 "Damn it,{cps=1} {/cps}It's an isekai"
     python:
-        if character[0][CharGender] == "Female":
-            prevGender = "male"
+        if character[0][CharGender] == "Male":
+            "narrator i guess" 'Previously [char1] was actually male but now that is not true so yea this text box is getting pretty long at some point it will just go off the page\nwhich will be the most boring joke possible to do in renpy i cant think of anymore text to out here now so imma just stop hopefully its gone off the screen by now'
         else:
-            prevGender = "female"
-    "narrator i guess" 'Previously [char1] was actually [prevGender]'
+            prevGender = "previously [char1] actually looked differently but i really dont wanna go code something that makes this text box different from the current state but i may do it later if this is in the final version that sucks but there is alot of other things that i need to do in a very complicated manner because renpy wasnt built to do visual novels and it doesn't like be doing it"
+    
 #   Apparently, I discovered, this was some sort of parallel world or different dimension. In the mirror I saw not myself, but the most generic anime artstyle RPG princess that could exist. White long hair, red irises, somewhere around 5’ 4”, and wearing a purple nightgown. Honestly, this looks ridiculous when not 2d and confined to a computer screen.
 # 	Enough questioning what has happened in the past 5 minutes and time to figure out who the princess used to be. I’ve no idea what role I’ve been dropped into and how I can play it without arousing suspicion so I need to collect all the information I can before breakfast
 # 	In a drawer I find a small orb. Upon picking up the orb it melts in my hand and disappears through my skin, slightly warming it. By the time I bring the orb to my face it's completely vanished into my skin. An flat plane appears in front of me, containing the text:
