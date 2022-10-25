@@ -2,17 +2,11 @@
 errors listed below, and try again.
 
 
-File "game/live_definitions.rpy", line 56: expected statement.
-    del charsToCreate
-                     ^
+The label _call_char_arrange is defined twice, at File "game/live_definitions.rpy", line 54:
+            call char_arrange from _call_char_arrange
+and File "game/live_definitions.rpy", line 58:
+        call char_arrange from _call_char_arrange
 
-File "game/live_definitions.rpy", line 57: expected statement.
-    del defaultNames
-                    ^
-
-File "game/live_definitions.rpy", line 58: expected statement.
-    del randomName
-                  ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Tue Oct 25 10:01:11 2022
+Tue Oct 25 12:02:16 2022

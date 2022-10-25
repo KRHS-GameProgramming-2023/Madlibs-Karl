@@ -1,35 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/definitions.rpy", line 3, in script
-    default config.developer = False
-  File "game/definitions.rpy", line 3, in script
-    default config.developer = False
-  File "game/definitions.rpy", line 3, in execute
-    default config.developer = False
-  File "renpy/common/000namespaces.rpy", line 36, in set_default
-    raise Exception("The default statement can not be used with the {} namespace.".format(self.name))
-Exception: The default statement can not be used with the config namespace.
+  File "game/script.rpy", line 59, in script call
+    call createCharacters(10) from _call_createCharacters
+  File "game/live_definitions.rpy", line 76, in script
+    $ del randomName
+  File "game/live_definitions.rpy", line 76, in <module>
+    $ del randomName
+NameError: name 'randomName' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/bootstrap.py", line 277, in bootstrap
-    renpy.main.main()
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/main.py", line 558, in main
-    renpy.game.context().run(node)
-  File "game/definitions.rpy", line 3, in script
-    default config.developer = False
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
-  File "game/definitions.rpy", line 3, in script
-    default config.developer = False
-  File "game/definitions.rpy", line 3, in execute
-    default config.developer = False
-  File "renpy/common/000namespaces.rpy", line 36, in set_default
-    raise Exception("The default statement can not be used with the {} namespace.".format(self.name))
-Exception: The default statement can not be used with the config namespace.
+  File "game/script.rpy", line 59, in script call
+    call createCharacters(10) from _call_createCharacters
+  File "game/live_definitions.rpy", line 76, in script
+    $ del randomName
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 1131, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/python.py", line 1061, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/live_definitions.rpy", line 76, in <module>
+    $ del randomName
+NameError: name 'randomName' is not defined
 
 Linux-5.15.74-3-MANJARO-x86_64-with-glibc2.36 x86_64
 Ren'Py 8.0.3.22090809
 pain hell
-Tue Oct 25 10:07:03 2022
+Tue Oct 25 12:05:24 2022

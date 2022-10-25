@@ -69,10 +69,20 @@ label sotry1:
 
     scene bg bedroom_door_open
     'The door opens behind me and a girl wearing a Victorian style maid outfit walked in.'
-    char0 'Good morning lady [char1]! I hope you slept well!~,'
+    char0 'Good morning lady [char1]! I hope you slept well!~'
     char0 'Breakfast will be ready in 20 minutes.'
     char1 'Thanks'
-#   I found a mirror and discovered the source of my weightlessness. Apparently, I discovered, this was some sort of parallel world or different dimension. In the mirror I saw not myself, but the most generic anime artstyle RPG princess that could exist. White long hair, red irises, somewhere around 5’ 4”, and wearing a purple nightgown. Honestly, this looks ridiculous when not 2d and confined to a computer screen.
+    'I search for and find a mirror'
+    
+    scene dynamic_bg bedroom_mirror
+    char1 "Damn it,{cps=1} {/cps}It's an isekai"
+    python:
+        if character[0][CharGender] == Female:
+            prevGender = "male"
+        else:
+            prevGender = "female"
+    "narrator i guess" 'Previously [char1] was actually [prevGender]'
+#   Apparently, I discovered, this was some sort of parallel world or different dimension. In the mirror I saw not myself, but the most generic anime artstyle RPG princess that could exist. White long hair, red irises, somewhere around 5’ 4”, and wearing a purple nightgown. Honestly, this looks ridiculous when not 2d and confined to a computer screen.
 # 	Enough questioning what has happened in the past 5 minutes and time to figure out who the princess used to be. I’ve no idea what role I’ve been dropped into and how I can play it without arousing suspicion so I need to collect all the information I can before breakfast
 # 	In a drawer I find a small orb. Upon picking up the orb it melts in my hand and disappears through my skin, slightly warming it. By the time I bring the orb to my face it's completely vanished into my skin. An flat plane appears in front of me, containing the text:
 # Name: Hakaru Orisu

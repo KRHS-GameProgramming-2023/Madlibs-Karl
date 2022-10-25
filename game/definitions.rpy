@@ -9,6 +9,8 @@ define pShe = 0
 define pHer = 1
 define pHers = 2
 define pHerself = 3
+default autoFillPrompts = False
+default autoFillRejected = False
 
 init python:
     config.use_cpickle = False

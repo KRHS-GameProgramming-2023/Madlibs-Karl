@@ -1,7 +1,7 @@
 label char_name():
     python:
         randomName = renpy.random.choice(defaultNames)
-    call screen def_charName(prompt="Enter a name", defaultInput=randomName)
+    call screen askForString(prompt="Enter a name", defaultInput=randomName)
 
     if _return.lower() in swears:
         call screen dialog(message='Name cannot be "[_return]"', ok_action=Return())
@@ -39,14 +39,33 @@ label char_arrange:
 
 
 label chars_create():
-    call char_name from _call_char_name
-    call char_gender from _call_char_gender
-    call char_arrange from _call_char_arrange
+    if config.developer == True and autoFillRejected == False:
+        if autoFillPrompts == False:
+            call screen confirm("Developer mode is enabled\nAuto fill character prompts?", yes_action=Return(True), no_action=Return(False))
+        if _return == True or autoFillPrompts == True:
+            $ autoFillPrompts = True
+            $ randomName = renpy.random.choice(defaultNames)
+            $ tempName = randomName
+            $ tempGender = renpy.random.choice(["Female", "Male"])
+            python:
+                if tempGender == "Female":
+                    tempPronounVar = ["She", "Her", "Hers", "Herself"]
+                else:
+                    tempPronounVar = ["He", "Him", "His", "Himself"]
+            call char_arrange
+        else:
+            $ autoFillRejected = True
+    else:
+        call char_name from _call_char_name
+        call char_gender from _call_char_gender
+        call char_arrange
     python:
         charsToCreate -= 1
     if 0 < charsToCreate:
         jump chars_create
     else:
+        $ autoFillPrompts = False
+        $ autoFillRejected = False
         return
 
 label createCharacters(num, defaultName=["Hakaru","Shinomi","Kashita","Minomi","Nomuri","Zekaru","Osake","Rizoto","Chinomi","Kaguya","Asuka","Ake","Ohayou","Sayoru","Yuka","Minesa","Kazeshi","Yunomi","Shitana","Ritama","Tsunde","Yande","Demi","Zoski","Kazeshi","Nomita","Roku","Shiromi","Kasoki","Resoki","Rekezo","Shishi","Takesa","Noabeku","Taoshi","Mineme","Noshiko","Asano"]):
@@ -54,7 +73,6 @@ label createCharacters(num, defaultName=["Hakaru","Shinomi","Kashita","Minomi","
     $ defaultNames = defaultName
     call chars_create from _call_chars_create
     $ del charsToCreate
-    $ del defaultNames
     $ del randomName
 
     if config.developer == True:
@@ -70,3 +88,17 @@ label createCharacters(num, defaultName=["Hakaru","Shinomi","Kashita","Minomi","
         $ del nameList
         $ del numberOfChars
     return
+
+label getAColour():
+    $ validInputColours = ["red", "green", "blue", "purple", "yellow", "white", "black", "orange", "pink", "purple", "brown", "grey", "gray", "silver", "gold", "cyan", "magenta", "lime"]
+    call screen askForString(prompt="Enter a colour", defaultInput="White")
+    $ returnedColour = _return.lower()
+    if colour in swears:
+        call screen dialog(message='"[colour]" is a swear', ok_action=Return())
+        jump getAColour
+    else:
+        if _return.lower() in validInputColours:
+            return
+        else:
+            call screen dialog(message='Colour "[_return]" is not a known colour', ok_action=Return())
+            jump getAColour

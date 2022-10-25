@@ -1127,7 +1127,7 @@ style help_label_text:
 ## Additional screens
 ################################################################################
 
-init -501 screen def_charName(prompt, defaultInput):
+init -501 screen askForString(prompt, defaultInput):
         
     tag varDefScreen
     modal True
