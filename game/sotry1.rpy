@@ -13,8 +13,10 @@ label sotry1:
     $ char10 = character[9][CharName]
     call ifDebug("sotry1 is running")
     call ifDebug(persistent.characters)
+    call ifDebug(character)
 
     scene bg room_with_incubator
+
     'The clock ticks away in the corner of the room as I pushed the next batch into the incubator.'
     char1 '23:46'
     'I scribble the time onto my clipboard'
@@ -22,6 +24,10 @@ label sotry1:
     'Standing up to return to my office, to grab my clipboard and leave the room.'
 
     scene bg lab_hallway
+
+    'I walk down the hallway, clipboard in hand.'
+    'Nobody else is in the lab at this time of night, and I should be home as well.'
+
     $ char1Upper = char1.upper()
     $ failedLastName = 0
     label definePreTransitionName:
@@ -32,14 +38,16 @@ label sotry1:
         jump definePreTransitionName
     if failedLastName > 0:
         call ifDebug("Failed " + str(failedLastName) + " times to generate a last name.")
-    
     $ char1preTransition = char1Upper + " " + randomLastNameUpper
-    'Nobody else is in the lab at this time of night, and I should be home as well.'
+
     'I enter my office as the words “[char1preTransition]” “AUTHORISED” appeared on the screen beside the door.'
     # sound ambient_buzz
     # need to find buzz sound
+
     'My office is silent but for the buzz of the distant air conditioning.'
+
     stop sound
+    
     'I collect my things and head out, the doors locking behind me.'
 
     scene bg train

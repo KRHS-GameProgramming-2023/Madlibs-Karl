@@ -57,6 +57,7 @@ label start():
 
     if sotry == 1:
         call createCharacters(10) from _call_createCharacters
+        $ persistent.characters = character
         call sotry1 from _call_sotry1
 
     # Show a background. This uses a placeholder by default, but you can

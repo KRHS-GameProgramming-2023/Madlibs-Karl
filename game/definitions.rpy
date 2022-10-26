@@ -1,7 +1,5 @@
 define titleText = renpy.random.choice(["california", "nobody ever expects the\nspanish inquisition", "*Thumbs up emoji*", "you are going to brazil"])
 define persistent.MC1 = []
-define character = []
-define persistent.characters = character
 define CharName = 0
 define CharGender = 1
 define CharPronoun = 2
@@ -11,6 +9,9 @@ define pHers = 2
 define pHerself = 3
 default autoFillPrompts = False
 default autoFillRejected = False
+default character = []
+default persistent.characters = []
+
 
 init python:
     config.use_cpickle = False
