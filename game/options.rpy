@@ -144,7 +144,7 @@ default preferences.afm_time = 15
 ## This generally should not be changed, and if it is, should always be a
 ## literal string, not an expression.
 
-define config.save_directory = "mmmmmmmmmmmm-1665056511"
+define config.save_directory = "Madlibs-Karl_this-is-where-saves-go"
 
 
 ## Icon ########################################################################

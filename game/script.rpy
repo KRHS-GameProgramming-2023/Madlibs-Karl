@@ -75,5 +75,8 @@ label start():
 
 
     # This ends the game.
-
+    python:
+        character.clear()
+        persistent.characters = character
+    
     return

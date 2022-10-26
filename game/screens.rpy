@@ -297,6 +297,7 @@ screen navigation():
 
         if main_menu:
 
+            textbutton _("Continue") sensitive renpy.newest_slot() action FileLoad (1, confirm=False, page="auto", newest=True)
             textbutton _("Story 1") action Start("startOne")
             textbutton _("Story 2") action Start("startTwo")
             textbutton _("Story 3") action Start("startThree")

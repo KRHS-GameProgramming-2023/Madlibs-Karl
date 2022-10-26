@@ -1,4 +1,5 @@
 label sotry1:
+    $ character = persistent.characters
     $ char0 = Character("???")
     $ char1 = character[0][CharName]
     $ char2 = character[1][CharName]
@@ -11,6 +12,7 @@ label sotry1:
     $ char9 = character[8][CharName]
     $ char10 = character[9][CharName]
     call ifDebug("sotry1 is running")
+    call ifDebug(persistent.characters)
 
     scene bg room_with_incubator
     'The clock ticks away in the corner of the room as I pushed the next batch into the incubator.'
@@ -172,3 +174,4 @@ label sotry1:
 # Shinuki screams and drops my hand as her dress catches fire. She points her wand at her flaming dress and water shoots out, extinguishing it. I try to stomp on the flames to put them out but my dress catches fire instead. Shinuki shoots another jet of water towards me and the ground.
 # “Have you forgotten how to control the effects of your mana?” Shinuki asks, with a hint of annoyance in her voice, “You’ve expelled raw mana of 4 elements twice now,” “You shouldn’t have any elements beyond fire and yet you’ve used wind, electricity, and light.”
 # “
+    return
