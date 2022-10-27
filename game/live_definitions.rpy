@@ -1,10 +1,16 @@
 label char_name():
-    python:
-        randomName = renpy.random.choice(defaultNames)
+    label genRandName():
+            $ randomName = renpy.random.choice(defaultNames)
+            if randomName in names:
+                jump genRandName
+
     call screen askForString(prompt="Enter a name", defaultInput=randomName)
 
     if _return.lower() in swears:
         call screen dialog(message='Name cannot be "[_return]"', ok_action=Return())
+        jump char_name
+    if _return.lower() in names:
+        call screen dialog(message='[_return] is already in use', ok_action=Return())
         jump char_name
     if _return.lower() == "":
         call screen dialog(message='Name cannot be blank', ok_action=Return())
@@ -28,6 +34,7 @@ label char_gender():
     return
         
 label char_arrange:
+    $ names.append(tempName)
     $ combinedList = [tempName, tempGender, tempPronounVar]
     $ character.append(combinedList)
     $ persistent.characters = character
@@ -39,12 +46,15 @@ label char_arrange:
 
 
 label chars_create():
-    if config.developer == True and autoFillRejected == False:
+    if autoFillRejected == False:
         if autoFillPrompts == False:
-            call screen confirm("Developer mode is enabled\nAuto fill character prompts?", yes_action=Return(True), no_action=Return(False))
+            call screen confirm("Auto fill character prompts?", yes_action=Return(True), no_action=Return(False))
         if _return == True or autoFillPrompts == True:
             $ autoFillPrompts = True
             $ randomName = renpy.random.choice(defaultNames)
+            label genRandNameDev:
+                if randomName in names:
+                    jump genRandNameDev
             $ tempName = randomName
             $ tempGender = renpy.random.choice(["Female", "Male"])
             python:
@@ -92,7 +102,7 @@ label createCharacters(num, defaultName=["Hakaru","Shinomi","Kashita","Minomi","
 label getAColour():
     $ validInputColours = ["red", "green", "blue", "purple", "yellow", "white", "black", "orange", "pink", "purple", "brown", "grey", "gray", "silver", "gold", "cyan", "magenta", "lime"]
     call screen askForString(prompt="Enter a colour", defaultInput="White")
-    $ returnedColour = _return.lower()
+    $ colour = _return.lower()
     if colour in swears:
         call screen dialog(message='"[colour]" is a swear', ok_action=Return())
         jump getAColour

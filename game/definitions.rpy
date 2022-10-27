@@ -11,6 +11,7 @@ default autoFillPrompts = False
 default autoFillRejected = False
 default character = []
 default persistent.characters = []
+default names = []
 
 
 init python:
