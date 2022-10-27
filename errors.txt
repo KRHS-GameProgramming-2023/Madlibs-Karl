@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/sotry1.rpy", line 19: expected statement.
-    renpy.reload()
-                  ^
+File "game/errorCorrection.rpy", line 9: invalid syntax
+    for i in range(0,9)
+    
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Thu Oct 27 08:34:43 2022
+Thu Oct 27 09:54:41 2022

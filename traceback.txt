@@ -1,30 +1,32 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 61, in script call
-    call sotry1 from _call_sotry1
-  File "game/sotry1.rpy", line 19, in script
-    python:
-  File "game/sotry1.rpy", line 20, in <module>
-    renpy.reload()
-AttributeError: module 'renpy.exports' has no attribute 'reload'
+  File "game/script.rpy", line 60, in script call
+    call correctNames(11)
+  File "game/errorCorrection.rpy", line 3, in script call
+    call names_errCorrect
+  File "game/errorCorrection.rpy", line 1, in script
+    label correctNames(expectedNumber):
+TypeError: Missing required positional arguments: 'expectedNumber'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 61, in script call
-    call sotry1 from _call_sotry1
-  File "game/sotry1.rpy", line 19, in script
-    python:
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 1131, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/python.py", line 1061, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/sotry1.rpy", line 20, in <module>
-    renpy.reload()
-AttributeError: module 'renpy.exports' has no attribute 'reload'
+  File "game/script.rpy", line 60, in script call
+    call correctNames(11)
+  File "game/errorCorrection.rpy", line 3, in script call
+    call names_errCorrect
+  File "game/errorCorrection.rpy", line 1, in script
+    label correctNames(expectedNumber):
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 1072, in execute
+    values = apply_arguments(self.parameters, renpy.store._args, renpy.store._kwargs)
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 294, in apply_arguments
+    return parameters.apply(args, kwargs, ignore_errors)
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 230, in apply
+    raise TypeError(
+TypeError: Missing required positional arguments: 'expectedNumber'
 
 Linux-5.15.74-3-MANJARO-x86_64-with-glibc2.36 x86_64
 Ren'Py 8.0.3.22090809
 pain hell
-Thu Oct 27 08:36:33 2022
+Thu Oct 27 10:02:14 2022

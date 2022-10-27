@@ -1,6 +1,8 @@
 label sotry1:
     $ character = persistent.characters
     $ char0 = Character("???")
+    
+    
     $ char1 = character[0][CharName]
     $ char2 = character[1][CharName]
     $ char3 = character[2][CharName]
@@ -12,8 +14,6 @@ label sotry1:
     $ char9 = character[8][CharName]
     $ char10 = character[9][CharName]
     call ifDebug("sotry1 is running")
-    call ifDebug(persistent.characters)
-    call ifDebug(character)
 
     scene bg room_with_incubator
     'The clock ticks away in the corner of the room as I pushed the next batch into the incubator.'

@@ -1128,6 +1128,41 @@ style help_label_text:
 ## Additional screens
 ################################################################################
 
+init -501 screen askForInt(prompt="Enter a number", defaultInput="", maxLength="5", otherAllowedCharacters=""):
+    modal True
+    zorder 200
+    style_prefix "confirm"
+    roll_forward True
+    $ allowedCharacters = "0123456789" + otherAllowedCharacters
+
+    frame:
+
+        has vbox:
+            xalign .5
+            yalign .5
+            spacing 60
+            xsize 300
+            ysize 30
+
+        grid 1 2:
+            xalign .5
+            yalign .5
+
+            label _(prompt):
+                style "gui_prompt"
+                xalign .5
+                yalign .4
+
+            input:
+                default defaultInput
+                xalign 0.5
+                yalign 0.6
+                length maxLength
+                allow allowedCharacters
+            # hbox:
+            #     spacing 23
+            #     textbutton _("OK") action Return(input)
+
 init -501 screen askForString(prompt, defaultInput):
         
     tag varDefScreen
@@ -1163,12 +1198,12 @@ init -501 screen askForString(prompt, defaultInput):
                 default defaultInput
                 length 12
                 allow "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm"
-            
-        # hbox:
-        #     xalign .5
-        #     spacing 200
-
-        #     textbutton _("OK") action Return()
+                
+            # hbox:
+            #     xalign .5
+            #     spacing 200
+    
+            #     textbutton _("OK") action Return(input)
 
 
 

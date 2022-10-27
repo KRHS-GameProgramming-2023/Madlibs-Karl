@@ -12,6 +12,8 @@ default autoFillRejected = False
 default character = []
 default persistent.characters = []
 default names = []
+default charactersFailed = 0
+define testNameSet = ""
 
 
 init python:
