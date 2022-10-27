@@ -3,15 +3,18 @@ label char_name():
             $ randomName = renpy.random.choice(defaultNames)
             if randomName in names:
                 jump genRandName
-
-    call screen askForString(prompt="Enter a name", defaultInput=randomName)
+    $ defaulInp = randomName
+    label char_name_prompt():
+        call screen askForString(prompt="Enter a name", defaultInput=defaulInp)
 
     if _return.lower() in swears:
-        call screen dialog(message='Name cannot be "[_return]"', ok_action=Return())
-        jump char_name
+        $ renpy.notify('Name cannot be "' + _return + '"')
+        $ defaulInp = randomName
+        jump char_name_prompt
     if _return.lower() in names:
-        call screen dialog(message='[_return] is already in use', ok_action=Return())
-        jump char_name
+        $ renpy.notify('"' + _return + '" is already in use')
+        $ defaulInp = _return
+        jump char_name_prompt
     if _return.lower() == "":
         call screen dialog(message='Name cannot be blank', ok_action=Return())
         jump char_name

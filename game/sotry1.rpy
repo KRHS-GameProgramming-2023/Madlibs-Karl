@@ -14,8 +14,9 @@ label sotry1:
     $ char9 = character[8][CharName]
     $ char10 = character[9][CharName]
     call ifDebug("sotry1 is running")
-
-    scene bg room_with_incubator
+    scene black with dissolve
+    pause 0.5
+    scene bg room_with_incubator at wiggle
     'The clock ticks away in the corner of the room as I pushed the next batch into the incubator.'
     char1 '23:46'
     'I scribble the time onto my clipboard'

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/errorCorrection.rpy", line 9: invalid syntax
-    for i in range(0,9)
-    
+File "game/screens.rpy", line 1168: 'at' is not a keyword argument or valid child for the screen statement.
+    at fade_in_right
+      ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Thu Oct 27 09:54:41 2022
+Thu Oct 27 11:00:42 2022

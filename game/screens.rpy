@@ -1164,7 +1164,7 @@ init -501 screen askForInt(prompt="Enter a number", defaultInput="", maxLength="
             #     textbutton _("OK") action Return(input)
 
 init -501 screen askForString(prompt, defaultInput):
-        
+    
     tag varDefScreen
     modal True
 

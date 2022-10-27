@@ -14,6 +14,8 @@ default persistent.characters = []
 default names = []
 default charactersFailed = 0
 define testNameSet = ""
+default expect = 0
+default expectedNumber = 0
 
 
 init python:
@@ -41,6 +43,19 @@ init:
     image bg lab_hallway:
         "images/lab_hallway.png"
         zoom 0.65
+
+    transform wiggle:
+        ease .1 xalign .2
+        ease .1 xalign .8
+        ease .1 xalign .3
+        ease .1 xalign .7
+        ease .1 xalign .4
+        ease .1 xalign .6
+        ease .1 xalign .5
+
+    transform fade_in_right:
+        xalign 0.3
+        ease .5 xalign .5
     
 
 

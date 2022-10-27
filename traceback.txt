@@ -1,32 +1,38 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 60, in script call
-    call correctNames(11)
-  File "game/errorCorrection.rpy", line 3, in script call
-    call names_errCorrect
-  File "game/errorCorrection.rpy", line 1, in script
-    label correctNames(expectedNumber):
-TypeError: Missing required positional arguments: 'expectedNumber'
+  File "game/script.rpy", line 59, in script call
+    call createCharacters(10) from _call_createCharacters
+  File "game/live_definitions.rpy", line 85, in script call
+    call chars_create from _call_chars_create
+  File "game/live_definitions.rpy", line 71, in script call
+    call char_name from _call_char_name
+  File "game/live_definitions.rpy", line 11, in script
+    $ renpy.notify('Name cannot be "' + _return + '"', at='wiggle')
+  File "game/live_definitions.rpy", line 11, in <module>
+    $ renpy.notify('Name cannot be "' + _return + '"', at='wiggle')
+TypeError: notify() got an unexpected keyword argument 'at'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 60, in script call
-    call correctNames(11)
-  File "game/errorCorrection.rpy", line 3, in script call
-    call names_errCorrect
-  File "game/errorCorrection.rpy", line 1, in script
-    label correctNames(expectedNumber):
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 1072, in execute
-    values = apply_arguments(self.parameters, renpy.store._args, renpy.store._kwargs)
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 294, in apply_arguments
-    return parameters.apply(args, kwargs, ignore_errors)
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 230, in apply
-    raise TypeError(
-TypeError: Missing required positional arguments: 'expectedNumber'
+  File "game/script.rpy", line 59, in script call
+    call createCharacters(10) from _call_createCharacters
+  File "game/live_definitions.rpy", line 85, in script call
+    call chars_create from _call_chars_create
+  File "game/live_definitions.rpy", line 71, in script call
+    call char_name from _call_char_name
+  File "game/live_definitions.rpy", line 11, in script
+    $ renpy.notify('Name cannot be "' + _return + '"', at='wiggle')
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 1131, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/python.py", line 1061, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/live_definitions.rpy", line 11, in <module>
+    $ renpy.notify('Name cannot be "' + _return + '"', at='wiggle')
+TypeError: notify() got an unexpected keyword argument 'at'
 
 Linux-5.15.74-3-MANJARO-x86_64-with-glibc2.36 x86_64
 Ren'Py 8.0.3.22090809
 pain hell
-Thu Oct 27 10:02:14 2022
+Thu Oct 27 10:57:42 2022
