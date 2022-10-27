@@ -51,10 +51,11 @@ label chars_create():
             call screen confirm("Auto fill character prompts?", yes_action=Return(True), no_action=Return(False))
         if _return == True or autoFillPrompts == True:
             $ autoFillPrompts = True
-            $ randomName = renpy.random.choice(defaultNames)
-            label genRandNameDev:
+
+            label genRandNameAuto:
+                $ randomName = renpy.random.choice(defaultNames)
                 if randomName in names:
-                    jump genRandNameDev
+                    jump genRandNameAuto
             $ tempName = randomName
             $ tempGender = renpy.random.choice(["Female", "Male"])
             python:

@@ -3,43 +3,28 @@
 While running game code:
   File "game/script.rpy", line 61, in script call
     call sotry1 from _call_sotry1
-  File "game/sotry1.rpy", line 14, in script call
-    call ifDebug("sotry1 is running")
-  File "game/script.rpy", line 13, in script call
-    "Debug" "[output]"
-  File "renpy/common/00console.rpy", line 1125, in script call
-    python in _console:
-  File "game/live_definitions.rpy", line 96, in script
-    if colour in swears:
-  File "game/live_definitions.rpy", line 96, in <module>
-    if colour in swears:
-NameError: name 'colour' is not defined
+  File "game/sotry1.rpy", line 19, in script
+    python:
+  File "game/sotry1.rpy", line 20, in <module>
+    renpy.reload()
+AttributeError: module 'renpy.exports' has no attribute 'reload'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
   File "game/script.rpy", line 61, in script call
     call sotry1 from _call_sotry1
-  File "game/sotry1.rpy", line 14, in script call
-    call ifDebug("sotry1 is running")
-  File "game/script.rpy", line 13, in script call
-    "Debug" "[output]"
-  File "renpy/common/00console.rpy", line 1125, in script call
-    python in _console:
-  File "<string>", line 1, in script call
-  File "game/live_definitions.rpy", line 96, in script
-    if colour in swears:
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 2115, in execute
-    if renpy.python.py_eval(condition):
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/python.py", line 1092, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/python.py", line 1085, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/live_definitions.rpy", line 96, in <module>
-    if colour in swears:
-NameError: name 'colour' is not defined
+  File "game/sotry1.rpy", line 19, in script
+    python:
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 1131, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/python.py", line 1061, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/sotry1.rpy", line 20, in <module>
+    renpy.reload()
+AttributeError: module 'renpy.exports' has no attribute 'reload'
 
 Linux-5.15.74-3-MANJARO-x86_64-with-glibc2.36 x86_64
 Ren'Py 8.0.3.22090809
 pain hell
-Thu Oct 27 07:45:25 2022
+Thu Oct 27 08:36:33 2022
