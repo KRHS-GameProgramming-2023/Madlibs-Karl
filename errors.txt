@@ -2,9 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 1168: 'at' is not a keyword argument or valid child for the screen statement.
-    at fade_in_right
-      ^
+File "game/translators.rpy", line 6: invalid syntax
+    if inpStr = "red":
+               ^
+    
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Thu Oct 27 11:00:42 2022
+Fri Nov  4 08:03:27 2022

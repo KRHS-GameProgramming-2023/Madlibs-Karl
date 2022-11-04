@@ -64,6 +64,10 @@ label chars_create():
                     tempPronounVar = ["She", "Her", "Hers", "Herself"]
                 else:
                     tempPronounVar = ["He", "Him", "His", "Himself"]
+            
+            if config.developer == True:
+                $ renpy.notify("Character " + str(len(names) + 1) + " created: " + tempName + " (" + tempGender + ")")
+                pause 0.1
             call char_arrange
         else:
             $ autoFillRejected = True
@@ -84,22 +88,22 @@ label createCharacters(num, defaultName=["Hakaru","Shinomi","Kashita","Minomi","
     $ defaultNames = defaultName
     call chars_create from _call_chars_create
 
-    if config.developer == True:
-        # list the names of the characters
-        $ nameList = []
-        $ i = 0
-        $ numberOfChars = len(persistent.characters)
-        while i < numberOfChars:
-            $ tempName = persistent.characters[i][CharName]
-            $ nameList.append(tempName)
-            $ i += 1
-        call screen dialog("Succesfully created [numberOfChars] characters.\n[nameList]", ok_action=Return())
+    # if config.developer == True:
+    #     # list the names of the characters
+    #     $ nameList = []
+    #     $ i = 0
+    #     $ numberOfChars = len(persistent.characters)
+    #     while i < numberOfChars:
+    #         $ tempName = persistent.characters[i][CharName]
+    #         $ nameList.append(tempName)
+    #         $ i += 1
+    #     call screen dialog("Succesfully created [numberOfChars] characters.\n[nameList]", ok_action=Return())
 
     return
 
 
 label getAColour():
-    $ validInputColours = ["red", "green", "blue", "purple", "yellow", "white", "black", "orange", "pink", "purple", "brown", "grey", "gray", "silver", "gold", "cyan", "magenta", "lime"]
+    $ validInputColours = ["red", "green", "blue", "purple", "yellow", "white", "black", "orange", "pink", "brown", "grey", "gray", "silver", "gold", "cyan", "magenta", "lime"]
     call screen askForString(prompt="Enter a colour", defaultInput="White")
     $ colour = _return.lower()
     if colour in swears:
@@ -114,12 +118,13 @@ label getAColour():
 
 
 label getATime():
-    call screen askForInt(prompt="Enter a time\nSeparate hours from minutes with a .", defaultInput="23.46", maxLength=24, otherAllowedCharacters=".")
+    call screen askForInt(prompt="Enter a time in 24 hour format\nSeparate hours from minutes with a .", defaultInput="23.46", maxLength=24, otherAllowedCharacters=".")
     python:
         returnedFloat = float(_return)
-        returnedInt = int(_return)
-    $ minutesReturn = (returnedFloat - returnedInt)*100
-    if minutes > 60 or returnedInt > 24 or minutes < 0 or returnedInt < 0:
+        hours = int(_return)
+    $ minutesReturn = (returnedFloat - hours)*100
+    if minutes > 60 or hours > 24 or minutes < 0 or hours < 0:
+        call screen dialog(message="Invalid time", ok_action=Return())
         jump getATime
     $ hoursReturn = returnedInt
     return

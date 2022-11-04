@@ -13,17 +13,19 @@ label sotry1:
     $ char8 = character[7][CharName]
     $ char9 = character[8][CharName]
     $ char10 = character[9][CharName]
-    call ifDebug("sotry1 is running")
+    if config.developer == True:
+        $ renpy.notify("sotry1 called successfully")
+        pause 2
     scene black with dissolve
     pause 0.5
-    scene bg room_with_incubator at wiggle
+    scene bg room_with_incubator with dissolve
     'The clock ticks away in the corner of the room as I pushed the next batch into the incubator.'
     char1 '23:46'
     'I scribble the time onto my clipboard'
     'The test will be over in the morning.'
     'Standing up to return to my office, to grab my clipboard and leave the room.'
 
-    scene bg lab_hallway
+    scene bg lab_hallway with dissolve
 
     'I walk down the hallway, clipboard in hand.'
     'Nobody else is in the lab at this time of night, and I should be home as well.'
@@ -50,20 +52,22 @@ label sotry1:
     
     'I collect my things and head out, the doors locking behind me.'
 
-    scene bg train
+    scene bg train with dissolve
 
     'I take the shinjuku line home.'
     'The train is empty, and I sit in the corner, staring out the window.'
 
-    scene bg bedroom
+    scene bg preBedroom with dissolve
 
     'Once home I collapse into bed, exhausted after a 26 hour shift.'
 
     # fade screen to black
-    scene bg black
+    scene black with dissolve
     #play sound rooster_caw
     'A rooster crows from outside the window'
     'I wake up, groggy and disoriented.'
+    show bg bedroom at wakeWithBlink
+    'I sit up, blinking my eyes.'
     scene bg bedroom
     pause 1
     char1 'Where am I?'
@@ -73,7 +77,7 @@ label sotry1:
     char1 'Ah!'
     'Im nearly knocked off balance by a newfound weightlessness.'
     'I peer out the window.'
-    scene bg bedroom_window
+    scene bg bedroom_window with dissolve
     char1 'What the hell?'
     char1 "Not to state the obvious, but this isn't Tokyo anymore."
 
@@ -84,7 +88,7 @@ label sotry1:
     char1 'Thanks'
     'I search for and find a mirror'
 
-    scene dynamic_bg bedroom_mirror
+    scene bg_with_shitty_code_aaaaaaaaa bedroom_mirror
     char1 "Damn it,{cps=1} {/cps}It's an isekai"
     python:
         if character[0][CharGender] == "Male":

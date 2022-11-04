@@ -56,8 +56,7 @@ label start():
     $ del swearsImport
 
     if sotry == 1:
-        call createCharacters(10) from _call_createCharacters
-        call correctNames(10)
+        call createCharsWithErrorC(10)
         $ persistent.characters = character
         call sotry1 from _call_sotry1
 

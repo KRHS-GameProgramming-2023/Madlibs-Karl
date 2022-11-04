@@ -56,6 +56,15 @@ init:
     transform fade_in_right:
         xalign 0.3
         ease .5 xalign .5
+
+    transform wakeWithBlink:
+        alpha 0
+        ease 1 alpha .7
+        ease .5 alpha 0
+        ease .5 alpha .7
+        ease .3 alpha 0.3
+        ease .4 alpha 1
+
     
 
 
