@@ -102,7 +102,7 @@ label sotry1:
         else:
             prevGender = "previously [char1] actually looked differently but i really dont wanna go code something that makes this text box different from the current state but i may do it later if this is in the final version that sucks but there is alot of other things that i need to do in a very complicated manner because renpy was built to do visual novels and it doesn't like me turning it into madlibs"
     
-    '{b}Isekai{/b}' '{i}Noun{/i} ({i}Japanese fiction{/i}) A genre of Japanese fiction involving everyday people transported to alternate fantasy or virtual worlds.\n{i}Verb{/i} ({i}fandom slang{/i}) To transport into an alternate world'
+    '{b}Isekai{/b}' '{i}Noun{/i} ({i}Japanese fiction{/i}) A genre of Japanese fiction involving everyday people transported to alternate fantasy or virtual worlds.\n{i}Verb{/i} ({i}fandom slang{/i}) To transport into an alternate world\n{i}   from Wiktionary, the free dictionary{/i}'
     'I need to figure out something about the princess so im not exiled or something for taking over her body'
     'I find a orb in a drawer that ive decided to call "the orb of skipping alot of text that nobody wants to read" because it skips alot of text that nobody wants to read'
     'anyway nuclear fusion or something and a plane apears before me'
