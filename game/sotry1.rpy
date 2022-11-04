@@ -83,46 +83,52 @@ label sotry1:
 
     scene bg bedroom_door_open
     'The door opens behind me and a girl wearing a Victorian style maid outfit walked in.'
+
+    show char2 at center
+
     char0 'Good morning lady [char1]! I hope you slept well!~'
     char0 'Breakfast will be ready in 20 minutes.'
     char1 'Thanks'
+
+    hide char2
+
     'I search for and find a mirror'
 
     scene bg_with_shitty_code_aaaaaaaaa bedroom_mirror
-    char1 "Damn it,{cps=1} {/cps}It's an isekai"
+    char1 "Damn it,{cps=1} {/cps}it's an isekai"
     python:
         if character[0][CharGender] == "Male":
             "narrator i guess" 'Previously [char1] was actually male but now that is not true so yea this text box is getting pretty long at some point it will just go off the page\nwhich will be the most boring joke possible to do in renpy i cant think of anymore text to out here now so imma just stop hopefully its gone off the screen by now'
         else:
             prevGender = "previously [char1] actually looked differently but i really dont wanna go code something that makes this text box different from the current state but i may do it later if this is in the final version that sucks but there is alot of other things that i need to do in a very complicated manner because renpy was built to do visual novels and it doesn't like me turning it into madlibs"
     
-#   Apparently, I discovered, this was some sort of parallel world or different dimension. In the mirror I saw not myself, but the most generic anime artstyle RPG princess that could exist. White long hair, red irises, somewhere around 5’ 4”, and wearing a purple nightgown. Honestly, this looks ridiculous when not 2d and confined to a computer screen.
-# 	Enough questioning what has happened in the past 5 minutes and time to figure out who the princess used to be. I’ve no idea what role I’ve been dropped into and how I can play it without arousing suspicion so I need to collect all the information I can before breakfast
-# 	In a drawer I find a small orb. Upon picking up the orb it melts in my hand and disappears through my skin, slightly warming it. By the time I bring the orb to my face it's completely vanished into my skin. An flat plane appears in front of me, containing the text:
-# Name: Hakaru Orisu
-# Sex: Female
-# Height: 162 cm
-# Weight: 59 kg
-# Class: Royalty
-# Family: Orisu
-# Age: 15
-# Elemental Class: *
-# Mana: Overflow Error (Value too large to display as int)
+    '{b}Isekai{/b}' '{i}Noun{/i} ({i}Japanese fiction{/i}) A genre of Japanese fiction involving everyday people transported to alternate fantasy or virtual worlds.\n{i}Verb{/i} ({i}fandom slang{/i}) To transport into an alternate world'
+    'I need to figure out something about the princess so im not exiled or something for taking over her body'
+    'I find a orb in a drawer that ive decided to call "the orb of skipping alot of text that nobody wants to read" because it skips alot of text that nobody wants to read'
+    'anyway nuclear fusion or something and a plane apears before me'
 
-# 	This confirms that this world relies at some level on anime RPG logic, and given how my hair is unnaturally coloured I’m probably the main character. Now that I have found out who I am supposed to be and have some semblance of an idea of where I am I need to find the inevitable problem that needs solving. The maid returns to the room and the plane vanishes
-# 	“Lady Hakaru, breakfast is ready,” she said. Another flat plane appears before me as I look at her. 
-# 	Name: Shinomi Nomin
-# 	Sex: Female
-# 	Height: 148 cm
-# 	Weight: 40 kg
-# 	Class: Pheasant
-# 	Family: Kiji
-# 	Age: 12
-# 	Blood: A+ | Pressure Nominal | Saturation Nominal
-# 	Ailment(s): Xeroderma
+    call screen speedyExposition("Name: [char1]\nSex: Female\nHeight: 192\nWeight: 59 kg\nClass: Royalty\nFamily: Orisu\nAge: 15\nElemental Class: *\nMana: 999999E+9999")
 
-# 	So I can see the basic medical information of other people, this may in some way be related to the main problem of this world.
-# 	“Alright let’s go,” I say, following her.
+    'damn,{cps=1} {/cps}its not only an isekai but an RPG'
+    'Since I was the one who was transported here and I am in a position of power, I am most likely the main character.'
+    
+    show char2 at center
+
+    char0 'Lady [char1]! Breakfast is ready!'
+
+    call screen speedyExposition("Name: [char2]\nSex: Female\nHeight: 148 cm\nWeight: 40 kg\nClass: Servant\nFamily: Kiji\nAge: 12\nBlood: A+ | Pressure Nominal | Saturation Nominal\nAilment(s): Xenoderma")
+
+    'It looks like I can see basic medical information about people. My objective is probably related'
+    char1 'Alright, lets go'
+    char2 'Yes, Lady [char1]!'
+
+    show bg dining_hall with dissolve
+
+    show char3 with dissolve
+
+    char3 'Good morning, [char1], I hope you slept well'
+    call screen speedyExposition("Name: [char3]\nSex: [character[2][CharGender]]\nHeight: 201 cm\nWeight: 80 kg\nClass: Royalty\nFamily: Orisu\nAge: 17\nElemental Class: *\nMana: 500")
+
 # 	At the dining hall I find only a boy, aged 17, sitting there. His name is Nomatsu Orisu, Hakaru’s older brother.
 # “Good morning Haka, I hope you slept well,”  He said, smiling
 # “Yes, it was an unusually sound sleep,” I said, hoping that wasn’t too out of the ordinary for me to say.

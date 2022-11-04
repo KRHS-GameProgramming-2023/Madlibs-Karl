@@ -2,10 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/translators.rpy", line 6: invalid syntax
-    if inpStr = "red":
-               ^
-    
+File "game/sotry1.rpy", line 127: expected 'simple_expression' not found.
+    show char3 with with dissolve
+                    ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Fri Nov  4 08:03:27 2022
+Fri Nov  4 10:11:14 2022

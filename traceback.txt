@@ -1,32 +1,42 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 62, in script call
+  File "game/script.rpy", line 61, in script call
     call sotry1 from _call_sotry1
-  File "game/sotry1.rpy", line 55, in script
-    scene bg train with dissovle
-  File "game/sotry1.rpy", line 55, in <module>
-    scene bg train with dissovle
-NameError: name 'dissovle' is not defined
+  File "game/sotry1.rpy", line 107, in script
+    call screen speedyExposition("
+  File "renpy/common/000statements.rpy", line 604, in execute_call_screen
+    args, kwargs = a.evaluate()
+SyntaxError: EOL while scanning string literal (sotry1.rpy, line 107)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 62, in script call
+  File "game/script.rpy", line 61, in script call
     call sotry1 from _call_sotry1
-  File "game/sotry1.rpy", line 55, in script
-    scene bg train with dissovle
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 1654, in execute
-    paired = renpy.python.py_eval(self.paired)
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/python.py", line 1092, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/python.py", line 1085, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/sotry1.rpy", line 55, in <module>
-    scene bg train with dissovle
-NameError: name 'dissovle' is not defined
+  File "game/sotry1.rpy", line 107, in script
+    call screen speedyExposition("
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 2232, in execute
+    self.call("execute")
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 2220, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/statements.py", line 281, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 604, in execute_call_screen
+    args, kwargs = a.evaluate()
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 342, in evaluate
+    value = renpy.python.py_eval(v, locals=scope)
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/python.py", line 1090, in py_eval
+    code = py_compile(code, 'eval')
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/python.py", line 1027, in py_compile
+    raise e
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/python.py", line 979, in py_compile
+    raise orig_e
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/python.py", line 972, in py_compile
+    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
+SyntaxError: EOL while scanning string literal (sotry1.rpy, line 107)
 
 Linux-5.15.76-1-MANJARO-x86_64-with-glibc2.36 x86_64
 Ren'Py 8.0.3.22090809
 pain hell
-Thu Nov  3 09:32:19 2022
+Fri Nov  4 10:09:16 2022

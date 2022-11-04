@@ -1,4 +1,4 @@
-define titleText = renpy.random.choice(["california", "nobody ever expects the\nspanish inquisition", "*Thumbs up emoji*", "you are going to brazil"])
+define titleText = renpy.random.choice(["california", "nobody ever expects the\nspanish inquisition", "*Thumbs up emoji*", "you are going to brazil", "can you hard boil an\negg by putting it\non a muffin tin in the oven\nat 100C?"])
 define persistent.MC1 = []
 define CharName = 0
 define CharGender = 1

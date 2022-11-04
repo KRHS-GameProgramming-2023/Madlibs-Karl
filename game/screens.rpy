@@ -1128,6 +1128,34 @@ style help_label_text:
 ## Additional screens
 ################################################################################
 
+init -501 screen speedyExposition(displayedText):
+    modal True
+    zorder 200
+    style_prefix "confirm"
+    sensitive True
+    dismiss action Return()
+
+    frame:
+        has vbox:
+            xalign .5
+            yalign .5
+            spacing 60
+
+        vbox:
+            xalign .5
+            yalign .5
+
+            label _(displayedText):
+                style "gui_prompt"
+                xalign .5
+                yalign .4
+            
+            label _("{i}click anything to continue{/i}"):
+                style "gui_prompt"
+                xalign .5
+                yalign .6
+
+
 init -501 screen askForInt(prompt="Enter a number", defaultInput="", maxLength="5", otherAllowedCharacters=""):
     modal True
     zorder 200
@@ -1159,11 +1187,10 @@ init -501 screen askForInt(prompt="Enter a number", defaultInput="", maxLength="
                 yalign 0.6
                 length maxLength
                 allow allowedCharacters
-            # hbox:
-            #     spacing 23
-            #     textbutton _("OK") action Return(input)
 
-init -501 screen askForString(prompt, defaultInput):
+
+
+init -501 screen askForString(prompt, defaultInput="", maxLength="12", otherAllowedCharacters=""):
     
     tag varDefScreen
     modal True
@@ -1173,6 +1200,8 @@ init -501 screen askForString(prompt, defaultInput):
     style_prefix "confirm"
 
     roll_forward True
+
+    $ allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" + otherAllowedCharacters
 
     frame:
         
@@ -1197,13 +1226,8 @@ init -501 screen askForString(prompt, defaultInput):
                 yalign .6
                 default defaultInput
                 length 12
-                allow "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm"
-                
-            # hbox:
-            #     xalign .5
-            #     spacing 200
-    
-            #     textbutton _("OK") action Return(input)
+                allow allowedCharacters
+
 
 
 
