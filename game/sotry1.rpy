@@ -16,16 +16,24 @@ label sotry1:
     if config.developer == True:
         $ renpy.notify("sotry1 called successfully")
         pause 2
+    stop music fadeout 3
     scene black with dissolve
     pause 0.5
     scene bg room_with_incubator with dissolve
+    play music music.loud_hum
     'The clock ticks away in the corner of the room as I pushed the next batch into the incubator.'
     char1 '23:46'
+    play sound pencil_short
     'I scribble the time onto my clipboard'
     'The test will be over in the morning.'
     'Standing up to return to my office, to grab my clipboard and leave the room.'
 
+    play sound door_open
+    pause .5
+    stop music fadeout .5
     scene bg lab_hallway with dissolve
+    pause .5
+    play sound door_close
 
     'I walk down the hallway, clipboard in hand.'
     'Nobody else is in the lab at this time of night, and I should be home as well.'
@@ -42,15 +50,29 @@ label sotry1:
         call ifDebug("Failed " + str(failedLastName) + " times to generate a last name.")
     $ char1preTransition = char1Upper + " " + randomLastNameUpper
 
+    play sound lock_beep
+    pause .5
+    play sound lock_click
+    pause .5
+    play sound door_open
+    pause .5
     'I enter my office as the words “[char1preTransition]” “AUTHORISED” appeared on the screen beside the door.'
-    # sound ambient_buzz
-    # need to find buzz sound
+    pause .5
+    play music music.buzz volume .5
+    pause .5
+    play sound door_close
+
+
 
     'My office is silent but for the buzz of the distant air conditioning.'
 
-    stop sound
     
     'I collect my things and head out, the doors locking behind me.'
+    stop music fadeout 1
+    play sound lock_click volume 1.5
+    pause .5
+    play sound lock_beep
+    pause 1
 
     scene bg train with dissolve
 

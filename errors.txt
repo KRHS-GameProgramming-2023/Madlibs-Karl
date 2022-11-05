@@ -2,11 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 382: expected a keyword argument, colon, or end of line.
-(Perhaps you left out a " at the end of the first line.)
-    text "leave this screen fast because i downloaded this menu music with my audio muted and its probably awful or just bad in this context"":
-                                                                                                                                             ^
-                color "
+File "game/sotry1.rpy", line 2: expected statement.
+    persistent.first_run = False
+                         ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Fri Nov  4 22:03:30 2022
+Fri Nov  4 23:29:29 2022

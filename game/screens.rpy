@@ -383,6 +383,10 @@ screen main_menu():
             color "#ffffff"
             at title_slide_in
             size 20
+        text "\n1 commit later and nvm its not that bad":
+            color "#ffffff"
+            at title_slide_in
+            size 20
     if gui.show_name:
 
         vbox:
@@ -1139,6 +1143,14 @@ style help_label_text:
 ################################################################################
 ## Additional screens
 ################################################################################
+
+init -501 screen chaoticNoBorderText(displayText, timerTime=3):
+    vbox:
+        at chaoticText
+
+        text displayText
+    
+    timer timerTime action Return()
 
 init -501 screen speedyExposition(displayedText):
     modal True

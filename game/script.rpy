@@ -39,6 +39,7 @@ label startTwo:
 label startThree:
     $ sotry = 3
     jump start
+
             
 
 # The game starts here.
@@ -55,6 +56,13 @@ label start():
             swears[i] = swears[i].lower()
         del i
     $ del swearsImport
+
+    if persistent.first_run == True:
+        call first_run
+    else:
+        if config.developer == True:
+            $ renpy.notify("first_run skipped because persistent.first_run is False")
+
 
     if sotry == 1:
         call createCharsWithErrorC(10)

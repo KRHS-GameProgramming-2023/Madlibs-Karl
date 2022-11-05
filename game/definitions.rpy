@@ -16,6 +16,7 @@ default charactersFailed = 0
 define testNameSet = ""
 default expect = 0
 default expectedNumber = 0
+default persistent.first_run = True
 
 
 init python:
@@ -89,5 +90,32 @@ init:
         yoffset 500
         ease 1 yoffset 0
 
+    transform chaoticText:
+        #make the text float around the screen on both the x and y axis
+
+        ease .3 xalign 0.55 yalign 0.45
+        ease .3 xalign 0.48 yalign 0.41
+        ease .3 xalign 0.56 yalign 0.46
+        ease .3 xalign 0.53 yalign 0.54
+        ease .3 xalign 0.45 yalign 0.48
+        ease .3 xalign 0.52 yalign 0.52
+        ease .3 xalign 0.48 yalign 0.45
+        ease .3 xalign 0.55 yalign 0.55
+        ease .3 xalign 0.45 yalign 0.45
+        ease .3 xalign 0.55 yalign 0.55
+
+
+        repeat
+
+
     define music.main_menu = "audio/music/juhani-junkala-gentle-casual-gaming-loop.mp3"
+    define music.loud_hum = "audio/fluoresent_light_hum_and_refrigerator-48831.mp3"
+    define music.buzz = "audio/old-fan-56737.mp3"
+
+    define pencil_short = "<to 1>audio/pencil-29272.mp3"
+    define door_open = "<to 2>audio/door-opening-and-closing-18398.mp3"
+    define door_close = "<from 4>audio/door-opening-and-closing-18398.mp3"
+    define lock_beep = "<from 0.1 to 0.8>audio/heart-monitor-beep-96554.mp3"
+    define lock_click = "<from .8 to 1.5>audio/door-lock-click-33617.mp3"
+
 
