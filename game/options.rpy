@@ -14,7 +14,7 @@
 
 define config.name = _("pain")
 
-
+define config.main_menu_music = music.main_menu
 
 ## Determines if the title given above is shown on the main menu screen. Set
 ## this to False to hide the title.
@@ -47,8 +47,8 @@ define build.name = "madlibs-renpy"
 ## to the player by default. Setting one of these to False will hide the
 ## appropriate mixer.
 
-define config.has_sound = False
-define config.has_music = False
+define config.has_sound = True
+define config.has_music = True
 define config.has_voice = False
 
 

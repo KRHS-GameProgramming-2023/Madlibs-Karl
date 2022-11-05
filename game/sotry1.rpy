@@ -102,11 +102,13 @@ label sotry1:
         else:
             prevGender = "previously [char1] actually looked differently but i really dont wanna go code something that makes this text box different from the current state but i may do it later if this is in the final version that sucks but there is alot of other things that i need to do in a very complicated manner because renpy was built to do visual novels and it doesn't like me turning it into madlibs"
     
-    '{b}Isekai{/b}' '{i}Noun{/i} ({i}Japanese fiction{/i}) A genre of Japanese fiction involving everyday people transported to alternate fantasy or virtual worlds.\n{i}Verb{/i} ({i}fandom slang{/i}) To transport into an alternate world\n{i}   from Wiktionary, the free dictionary{/i}'
+    '{b}Isekai{/b}' '{i}Noun{/i} ({i}Japanese fiction{/i}) A genre of Japanese fiction involving everyday people transported to alternate fantasy or virtual worlds.\n{i}Verb{/i} ({i}fandom slang{/i}) To transport into an alternate world\n{i} from Wiktionary, the free dictionary{/i}'
     'I need to figure out something about the princess so im not exiled or something for taking over her body'
-    'I find a orb in a drawer that ive decided to call "the orb of skipping alot of text that nobody wants to read" because it skips alot of text that nobody wants to read'
-    'anyway nuclear fusion or something and a plane apears before me'
+    'I find a orb in a drawer that ive decided to call {i}"the orb of skipping alot of text that nobody wants to read"{/i} because it skips alot of text that nobody wants to read'
+    'anyway nuclear fusion or something and the orb has fused into my hand'
+    'also the screen {i}speedyExposition{/i} suddenly has a purpose'
 
+    $ renpy.notify("exposition just sped up")
     call screen speedyExposition("Name: [char1]\nSex: Female\nHeight: 192\nWeight: 59 kg\nClass: Royalty\nFamily: Orisu\nAge: 15\nElemental Class: *\nMana: 999999E+9999")
 
     'damn,{cps=1} {/cps}its not only an isekai but an RPG'
@@ -127,7 +129,7 @@ label sotry1:
     show char3 with dissolve
 
     char3 'Good morning, [char1], I hope you slept well'
-    call screen speedyExposition("Name: [char3]\nSex: [character[2][CharGender]]\nHeight: 201 cm\nWeight: 80 kg\nClass: Royalty\nFamily: Orisu\nAge: 17\nElemental Class: *\nMana: 500")
+    call screen speedyExposition("Name: [char3]\nSex: "+ character[2][CharGender] + "\nHeight: 201 cm\nWeight: 80 kg\nClass: Royalty\nFamily: Orisu\nAge: 17\nElemental Class: *\nMana: 500")
 
 # 	At the dining hall I find only a boy, aged 17, sitting there. His name is Nomatsu Orisu, Hakaru’s older brother.
 # “Good morning Haka, I hope you slept well,”  He said, smiling

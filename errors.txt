@@ -2,9 +2,11 @@
 errors listed below, and try again.
 
 
-File "game/sotry1.rpy", line 127: expected 'simple_expression' not found.
-    show char3 with with dissolve
-                    ^
+File "game/screens.rpy", line 382: expected a keyword argument, colon, or end of line.
+(Perhaps you left out a " at the end of the first line.)
+    text "leave this screen fast because i downloaded this menu music with my audio muted and its probably awful or just bad in this context"":
+                                                                                                                                             ^
+                color "
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Fri Nov  4 10:11:14 2022
+Fri Nov  4 22:03:30 2022

@@ -290,7 +290,7 @@ screen navigation():
     vbox:
         style_prefix "navigation"
 
-        xpos gui.navigation_xpos
+        at menu_slide_in
         yalign 0.5
 
         spacing gui.navigation_spacing
@@ -353,15 +353,20 @@ style navigation_button_text:
 
 screen main_menu():
 
+
+
     ## This ensures that any other menu screen is replaced.
     tag menu
 
     add gui.main_menu_background:
         zoom 0.65
+        yalign .5
+        
 
     ## This empty frame darkens the main menu.
     frame:
         style "main_menu_frame"
+        at menu_frame_slide_in
 
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
@@ -372,7 +377,12 @@ screen main_menu():
         
         text titleText:
             style "main_menu_title"
+            at title_slide_in
             color "#ffffff"
+        text "leave this screen fast because i downloaded this menu music with my audio muted and its probably awful or just bad in this context":
+            color "#ffffff"
+            at title_slide_in
+            size 20
     if gui.show_name:
 
         vbox:
@@ -430,6 +440,8 @@ screen game_menu(title, scroll=None, yinitial=0.0):
     if main_menu:
         add gui.main_menu_background:
             zoom 0.65
+            xalign .5
+            yalign .5
     else:
         add gui.game_menu_background
 

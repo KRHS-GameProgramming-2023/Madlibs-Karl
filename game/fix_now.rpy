@@ -1,7 +1,6 @@
 label strToHEX(str):
-    
     python:
-        inpStr = str
+        inpStr = str.lower()
         hexStr = ""
         if inpStr == "red":
             hexStr = "FF0000"
@@ -28,3 +27,13 @@ label strToHEX(str):
         elif inpStr == "cyan":
             hexStr = "00FFFF"
     return
+
+label findRelation(gender):
+    python:
+        if gender == "Female":
+            renpy.notify('findRelation result "sister"')
+            it = "sister"
+        else:
+            renpy.notify('findRelation result "brother"')
+            it = "brother"
+    return it

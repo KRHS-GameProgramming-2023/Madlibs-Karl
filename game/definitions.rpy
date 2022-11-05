@@ -36,6 +36,12 @@ init:
         "images/start_bg.png"
         zoom 0.94
 
+    image main_menu:
+        "gui/new_main_menu.png"
+        zoom 0.65
+        xalign .5
+        yalign .5
+
     image bg room_with_incubator:
         "modern_laboratory_room__lights_off__incubator_against_a_wall__anime_Seed-7720237_Steps-50_Guidance-7.5.png"
         zoom 0.63
@@ -65,6 +71,23 @@ init:
         ease .3 alpha 0.3
         ease .4 alpha 1
 
-    
+    transform slide_in:
+        xalign 1
+        ease .5 xalign .5
 
+    transform menu_slide_in:
+        xoffset -500
+        time 1
+        ease 1 xoffset 60
+
+    transform menu_frame_slide_in:
+        xoffset -500
+        time .5
+        ease 1 xoffset 0
+
+    transform title_slide_in:
+        yoffset 500
+        ease 1 yoffset 0
+
+    define music.main_menu = "audio/music/juhani-junkala-gentle-casual-gaming-loop.mp3"
 

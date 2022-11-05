@@ -43,7 +43,8 @@ label startThree:
 
 # The game starts here.
 label start():
-    scene bg_start
+    scene main_menu
+    pause .5
     $ swearsImport = renpy.file("hell.txt", encoding="utf-8")
     python:
         swears = []
