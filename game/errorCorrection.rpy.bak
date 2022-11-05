@@ -1,6 +1,6 @@
 label createCharsWithErrorC(num):
-    call createCharacters(num) from _call_createCharacters
-    call correctNames(num) from _call_correctNames
+    call createCharacters(num)
+    call correctNames(num)
     return
 
 label correctNames(expectedNumber):
@@ -10,7 +10,7 @@ label correctNames(expectedNumber):
             renpy.pause(1)
     $ expect = expectedNumber
     $ charactersFailed = 0
-    call names_errCorrect from _call_names_errCorrect
+    call names_errCorrect
     return
 
 label names_reCheck():
@@ -19,7 +19,7 @@ label names_reCheck():
             renpy.notify("Rechecking names.")
             renpy.pause(1)
     $ charactersFailed = 0
-    call names_errCorrect from _call_names_errCorrect_1
+    call names_errCorrect
     return
 
 label names_errCorrect():
@@ -39,7 +39,7 @@ label names_errCorrect():
     if charactersFailed > 0:
         $ renpy.notify("Something went wrong while defining the characters. " + str(charactersFailed) + " characters will now be created.")
         $ charsToCreate = charactersFailed
-        call createCharacters(charsToCreate) from _call_createCharacters_1
+        call createCharacters(charsToCreate)
         jump names_reCheck
     if config.developer == True:
         $ renpy.notify("All characters passed\nProgressing to next scene.")

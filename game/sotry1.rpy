@@ -47,7 +47,7 @@ label sotry1:
         $ failedLastName += 1
         jump definePreTransitionName
     if failedLastName > 0:
-        call ifDebug("Failed " + str(failedLastName) + " times to generate a last name.")
+        call ifDebug("Failed " + str(failedLastName) + " times to generate a last name.") from _call_ifDebug
     $ char1preTransition = char1Upper + " " + randomLastNameUpper
 
     play sound lock_beep

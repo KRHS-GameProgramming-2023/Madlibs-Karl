@@ -1,14 +1,4 @@
-﻿define persistent.MC1 = []
-default inputAcceptable = False
-define character = []
-define persistent.characters = character
-define CharName = 0
-define CharGender = 1
-define CharPronoun = 2
-define pShe = 0
-define pHer = 1
-define pHers = 2
-define pHerself = 3
+﻿
 
 
 # The script of the game goes in this file.
@@ -16,37 +6,7 @@ define pHerself = 3
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-label char_name():
-    python:
-        randomName = renpy.random.choice(defaultNames)
-    call screen def_charName(prompt="Whats the MC's name", defaultInput=randomName)
 
-    if _return.lower() in swears:
-        call screen dialog(message="That name is not allowed.\nEnter something else explicit.", ok_action=Return())
-        jump ch_name
-    $ tempName = _return
-    return
-
-label char_gender():
-    call screen def_charGender("Enter [tempName]'s gender")
-    $ tempGender = _return
-    python:
-        if tempGender == "Female":
-            tempPronounVar = ["She", "Her", "Hers", "Herself"]
-        else:
-            tempPronounVar = ["He", "Him", "His", "Himself"]
-
-    return
-        
-label char_arrange:
-    $ combinedList = [tempName, tempGender, tempPronounVar]
-    $ character.append(combinedList)
-    $ persistent.characters = character
-    $ del combinedList
-    $ del tempName
-    $ del tempGender
-    $ del tempPronounVar
-    return
 
 label ifDebug(output):
     if config.developer:
@@ -64,54 +24,9 @@ label ifDebug(output):
 #
 ############################################
 
-label chars_create():
-    call char_name
-    call char_gender
-    call char_arrange
-    python:
-        charsToCreate -= 1
-    if 0 < charsToCreate:
-        jump chars_create
-    else:
-        return
     
-label createCharacters(num, defaultName=["Hakaru","Shinomi","Kashita","Minomi","Nomuri","Zekaru","Osake","Rizoto","Chinomi","Kaguya","Asuka","Ake","Ohayou","Sayoru","Yuka","Minesa","Kazeshi","Yunomi","Shitana","Ritama","Tsunde","Yande","Demi","Zoski","Kazeshi"]):
-    $ charsToCreate = num
-    $ defaultNames = defaultName
-    call chars_create
 
-    if config.developer == True:
-        # list the names of the characters
-        $ nameList = []
-        $ i = 0
-        $ numberOfChars = len(persistent.characters)
-        while i < numberOfChars:
-            $ tempName = persistent.characters[i][CharName]
-            $ nameList.append(tempName)
-            $ i += 1
-        call screen dialog("Succesfully created [numberOfChars] characters.\n[nameList]", ok_action=Return())
-        $ del nameList
-        $ del numberOfChars
-    return
 
-label swears_load:
-    python:
-        swears = []
-        import codecs
-        f = codecs.open(config.gamedir + "/hell.txt", "r", "utf-8")
-        for i in f:
-            tempList = i.strip()
-            swears.append(tempList)
-        f.close()
-        for i in range(0, len(swears)):
-            swears[i] = swears[i].lower()
-        del i
-    if config.developer == True:
-        if swears != None:
-            return
-        else:
-            call screen dialog("Swears failed to load.", ok_action=Return())
-            return
     
 label startOne:
     $ sotry = 1
@@ -124,31 +39,35 @@ label startTwo:
 label startThree:
     $ sotry = 3
     jump start
+
             
 
 # The game starts here.
 label start():
-    scene bg_start
-    call swears_load
+    scene main_menu
+    pause .5
+    $ swearsImport = renpy.file("hell.txt", encoding="utf-8")
+    python:
+        swears = []
+        for i in swearsImport:
+            tempList = i.strip()
+            swears.append(tempList)
+        for i in range(0, len(swears)):
+            swears[i] = swears[i].lower()
+        del i
+    $ del swearsImport
+
+    if persistent.first_run == True:
+        call first_run
+    else:
+        if config.developer == True:
+            $ renpy.notify("first_run skipped because persistent.first_run is False")
+
+
     if sotry == 1:
-        call createCharacters(10)
-        call sotry1
-    
-
-
-    
-    # if not persistent.MC1defined:
-    #     if not persistent.MC1:
-    #         call screen def_charName(1)
-    #     if not persistent.MC1gender:
-    #         call screen def_charGender(persistent.MC1name)
-    
-
-
-
-    
-    
-
+        call createCharsWithErrorC(10)
+        $ persistent.characters = character
+        call sotry1 from _call_sotry1
 
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
@@ -166,5 +85,8 @@ label start():
 
 
     # This ends the game.
-
+    python:
+        character.clear()
+        persistent.characters = character
+    
     return

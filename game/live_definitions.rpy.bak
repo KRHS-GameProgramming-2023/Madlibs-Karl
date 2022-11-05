@@ -68,13 +68,13 @@ label chars_create():
             if config.developer == True:
                 $ renpy.notify("Character " + str(len(names) + 1) + " created: " + tempName + " (" + tempGender + ")")
                 pause 0.1
-            call char_arrange from _call_char_arrange
+            call char_arrange
         else:
             $ autoFillRejected = True
     else:
         call char_name from _call_char_name
         call char_gender from _call_char_gender
-        call char_arrange from _call_char_arrange_1
+        call char_arrange
     python:
         charsToCreate -= 1
     if 0 < charsToCreate:

@@ -58,14 +58,14 @@ label start():
     $ del swearsImport
 
     if persistent.first_run == True:
-        call first_run
+        call first_run from _call_first_run
     else:
         if config.developer == True:
             $ renpy.notify("first_run skipped because persistent.first_run is False")
 
 
     if sotry == 1:
-        call createCharsWithErrorC(10)
+        call createCharsWithErrorC(10) from _call_createCharsWithErrorC
         $ persistent.characters = character
         call sotry1 from _call_sotry1
 
