@@ -10,7 +10,7 @@
 
 label ifDebug(output):
     if config.developer:
-        "Debug" "[output]"
+        $ renpy.notify("[output]")
     return
 ############################################
 # Character Organization

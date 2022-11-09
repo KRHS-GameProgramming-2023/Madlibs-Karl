@@ -118,15 +118,17 @@ label getAColour():
 
 
 label getATime():
-    call screen askForInt(prompt="Enter a time in 24 hour format\nSeparate hours from minutes with a .", defaultInput="23.46", maxLength=24, otherAllowedCharacters=".")
+    call screen askForInt(prompt="Enter a time in 24 hour format\nExample: 14.23", defaultInput="23.46", maxLength=24, otherAllowedCharacters=".")
     python:
-        returnedFloat = float(_return)
-        hours = int(_return)
-    $ minutesReturn = (returnedFloat - hours)*100
+        returned = _return
+        returnedFloat = float(returned)
+        hours = int(returnedFloat)
+    $ minutes = (returnedFloat - hours)*100
     if minutes > 60 or hours > 24 or minutes < 0 or hours < 0:
         call screen dialog(message="Invalid time", ok_action=Return())
         jump getATime
-    $ hoursReturn = returnedInt
+    $ minutesReturn = int(minutes)
+    $ hoursReturn = int(hours)
     return
     
 

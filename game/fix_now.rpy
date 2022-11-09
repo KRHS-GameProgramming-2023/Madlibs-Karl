@@ -28,12 +28,15 @@ label strToHEX(str):
             hexStr = "00FFFF"
     return
 
-label findRelation(gender):
-    python:
-        if gender == "Female":
-            renpy.notify('findRelation result "sister"')
-            it = "sister"
-        else:
-            renpy.notify('findRelation result "brother"')
-            it = "brother"
+label findRelation(character):
+    call sexBasedText(ifFemale="sister",ifMale="brother",character=character)
+    it = _return
     return it
+
+label sexBasedText(ifFemale,ifMale,character):
+    python:
+        character = character[charSex]
+        if character == "Female":
+            return ifFemale
+        else:
+            return ifMale

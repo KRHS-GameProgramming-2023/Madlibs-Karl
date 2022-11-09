@@ -2,10 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 56: invalid syntax
-        jump start
-              ^
-    
+File "game/sotry1.rpy", line 117: expected 'label_name' not found.
+    call if
+        ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Wed Nov  9 09:22:49 2022
+Wed Nov  9 09:40:00 2022

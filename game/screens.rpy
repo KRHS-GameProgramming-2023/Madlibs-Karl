@@ -1140,9 +1140,10 @@ style help_label_text:
 ## Additional screens
 ################################################################################
 
-init -501 screen chaoticNoBorderText(displayText, timerTime=3):
+init -501 screen NoBorderText(displayText, timerTime=3):
     vbox:
-        at chaoticText
+        xalign 0.5
+        yalign 0.5
 
         text displayText
     
@@ -1192,19 +1193,19 @@ init -501 screen askForInt(prompt="Enter a number", defaultInput="", maxLength="
             xsize 300
             ysize 30
 
-        grid 1 2:
+        vbox:
             xalign .5
             yalign .5
 
             label _(prompt):
                 style "gui_prompt"
                 xalign .5
-                yalign .4
+                yalign .5
 
             input:
                 default defaultInput
                 xalign 0.5
-                yalign 0.6
+                yalign 0.5
                 length maxLength
                 allow allowedCharacters
 

@@ -23,9 +23,10 @@ label sotry1:
     play music music.loud_hum
     'The clock ticks away in the corner of the room as I pushed the next batch into the incubator.'
     call getATime()
-    char1 '[hoursReturn]:[minutesReturn]'
-    play sound pencil_short
     'I scribble the time onto my clipboard'
+    play sound pencil_short
+    char1 '"[hoursReturn]:[minutesReturn]"'
+    
     'The test will be over in the morning.'
     'Standing up to return to my office, to grab my clipboard and leave the room.'
 
@@ -141,7 +142,8 @@ label sotry1:
         else:
             prevGender = "previously [char1] actually looked differently but i really dont wanna go code something that makes this text box different from the current state but i may do it later if this is in the final version that sucks but there is alot of other things that i need to do in a very complicated manner because renpy was built to do visual novels and it doesn't like me turning it into madlibs"
     
-    '{b}Isekai{/b}' '{i}Noun{/i} ({i}Japanese fiction{/i}) A genre of Japanese fiction involving everyday people transported to alternate fantasy or virtual worlds.\n{i}Verb{/i} ({i}fandom slang{/i}) To transport into an alternate world\n{i} from Wiktionary, the free dictionary{/i}'
+    
+    call screen NoBorderText(displayText="{b}Isekai{/b}\n{i}Noun{/i} ({i}Japanese fiction{/i}) A genre of Japanese fiction involving everyday people transported to alternate fantasy or virtual worlds.\n{i}Verb{/i} ({i}fandom slang{/i}) To transport into an alternate world\n{i}from Wiktionary, the free dictionary{/i}",timerTime=10)
     scene bg bedroom with dissolve
     'I need to figure out something about the princess so im not exiled or something for taking over her body'
     'I find a orb in a drawer that ive decided to call {i}"the orb of skipping alot of text that nobody wants to read"{/i} because it skips alot of text that nobody wants to read'

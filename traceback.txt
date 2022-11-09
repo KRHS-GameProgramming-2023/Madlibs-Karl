@@ -1,28 +1,34 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 84, in script
-    if ignoreSwears == False:
-  File "game/script.rpy", line 84, in <module>
-    if ignoreSwears == False:
-NameError: name 'ignoreSwears' is not defined
+  File "game/script.rpy", line 102, in script call
+    call sotry1 from _call_sotry1
+  File "game/sotry1.rpy", line 25, in script call
+    call getATime()
+  File "game/live_definitions.rpy", line 131, in script
+    $ hoursReturn = returnedInt
+  File "game/live_definitions.rpy", line 131, in <module>
+    $ hoursReturn = returnedInt
+NameError: name 'returnedInt' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 84, in script
-    if ignoreSwears == False:
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 2115, in execute
-    if renpy.python.py_eval(condition):
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/python.py", line 1092, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/python.py", line 1085, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 84, in <module>
-    if ignoreSwears == False:
-NameError: name 'ignoreSwears' is not defined
+  File "game/script.rpy", line 102, in script call
+    call sotry1 from _call_sotry1
+  File "game/sotry1.rpy", line 25, in script call
+    call getATime()
+  File "game/live_definitions.rpy", line 131, in script
+    $ hoursReturn = returnedInt
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 1131, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/python.py", line 1061, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/live_definitions.rpy", line 131, in <module>
+    $ hoursReturn = returnedInt
+NameError: name 'returnedInt' is not defined
 
 Linux-5.15.76-1-MANJARO-x86_64-with-glibc2.36 x86_64
 Ren'Py 8.0.3.22090809
 pain hell
-Mon Nov  7 10:44:28 2022
+Wed Nov  9 09:32:51 2022
