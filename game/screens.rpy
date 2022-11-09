@@ -379,14 +379,10 @@ screen main_menu():
             style "main_menu_title"
             at title_slide_in
             color "#ffffff"
-        text "leave this screen fast because i downloaded this menu music with my audio muted and its probably awful or just bad in this context":
-            color "#ffffff"
-            at title_slide_in
+        text "Sample Text":
+            color '#ffffff'
             size 20
-        text "\n1 commit later and nvm its not that bad":
-            color "#ffffff"
             at title_slide_in
-            size 20
     if gui.show_name:
 
         vbox:
