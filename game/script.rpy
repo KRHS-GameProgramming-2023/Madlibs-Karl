@@ -57,6 +57,7 @@ label loadSwears:
             ignoreSwears = True
         except:
             renpy.jump("swearsFailed")
+    $ renpy.notify("Swears Loaded")
     jump start
 
 label swearsFailed:

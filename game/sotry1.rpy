@@ -22,7 +22,8 @@ label sotry1:
     scene bg room_with_incubator with dissolve
     play music music.loud_hum
     'The clock ticks away in the corner of the room as I pushed the next batch into the incubator.'
-    char1 '23:46'
+    call getATime()
+    char1 '[hoursReturn]:[minutesReturn]'
     play sound pencil_short
     'I scribble the time onto my clipboard'
     'The test will be over in the morning.'
