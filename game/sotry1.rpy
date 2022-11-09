@@ -118,11 +118,8 @@ label sotry1:
 
     show char2 at center
 
-
-    if character[1][CharSex] == "Female":
-        char0 'Good morning lady [char1]! I hope you slept well!~'
-    else:
-        char0 'Good morning madam [char1]. I hope you slept well.'
+    call sexBasedText(ifFemale='Good morning lady [char1]! I hope you slept well!~', ifMale='Good morning madam [char1]. I hope you slept well.',character=character[1])
+    char2 '[_return]'
     
 
     char0 'Breakfast will be ready in 20 minutes.'
@@ -136,11 +133,13 @@ label sotry1:
     scene black
     call screen dialog("im kinda running out of time so just pretend\nthere is a girl with " + _return + " hair onscreen", ok_action=Return())
     char1 "Damn it,{cps=1} {/cps}it's an isekai"
+    call sexBasedText(ifFemale)
     python:
+
         if character[0][CharGender] == "Male":
             "narrator i guess" 'Previously [char1] was actually male but now that is not true so yea this text box is getting pretty long at some point it will just go off the page\nwhich will be the most boring joke possible to do in renpy i cant think of anymore text to out here now so imma just stop hopefully its gone off the screen by now'
         else:
-            prevGender = "previously [char1] actually looked differently but i really dont wanna go code something that makes this text box different from the current state but i may do it later if this is in the final version that sucks but there is alot of other things that i need to do in a very complicated manner because renpy was built to do visual novels and it doesn't like me turning it into madlibs"
+            "previously [char1] actually looked differently but i really dont wanna go code something that makes this text box different from the current state but i may do it later if this is in the final version that sucks but there is alot of other things that i need to do in a very complicated manner because renpy was built to do visual novels and it doesn't like me turning it into madlibs"
     
     
     call screen NoBorderText(displayText="{b}Isekai{/b}\n{i}Noun{/i} ({i}Japanese fiction{/i}) A genre of Japanese fiction involving everyday people transported to alternate fantasy or virtual worlds.\n{i}Verb{/i} ({i}fandom slang{/i}) To transport into an alternate world\n{i}from Wiktionary, the free dictionary{/i}",timerTime=10)
