@@ -43,6 +43,8 @@ label startThree:
 label loadSwears:
     python:
         try:
+            renpy.notify("Loading Swears")
+            renpy.pause(.1)
             swearsImport = renpy.file("hell.txt", encoding="utf-8")
             swears = []
             for i in swearsImport:
@@ -52,8 +54,10 @@ label loadSwears:
                 swears[i] = swears[i].lower()
             del i
             del swearsImport
+            ignoreSwears = True
         except:
             renpy.jump("swearsFailed")
+    jump start
 
 label swearsFailed:
     if swearsFailedTimes < 10:

@@ -2,10 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 61: invalid syntax
-        renpy.return()
-               ^
+File "game/script.rpy", line 56: invalid syntax
+        jump start
+              ^
     
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Mon Nov  7 10:34:23 2022
+Wed Nov  9 09:22:49 2022
