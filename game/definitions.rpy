@@ -2,6 +2,7 @@ define titleText = renpy.random.choice(["california", "nobody ever expects the\n
 define persistent.MC1 = []
 define CharName = 0
 define CharGender = 1
+define CharSex = 1
 define CharPronoun = 2
 define pShe = 0
 define pHer = 1
@@ -17,6 +18,8 @@ define testNameSet = ""
 default expect = 0
 default expectedNumber = 0
 default persistent.first_run = True
+default swearsFailedTimes = 0
+default ignoreSwears = False
 
 
 init python:
@@ -24,32 +27,6 @@ init python:
 
 
 init:
-
-    image bg pregen 02:
-        "pregen_bg_02.png"
-        zoom 0.94
-
-    image black = "#000"
-    image white = "#fff"
-    #screens
-
-    image bg_start:
-        "images/start_bg.png"
-        zoom 0.94
-
-    image main_menu:
-        "gui/new_main_menu.png"
-        zoom 0.65
-        xalign .5
-        yalign .5
-
-    image bg room_with_incubator:
-        "modern_laboratory_room__lights_off__incubator_against_a_wall__anime_Seed-7720237_Steps-50_Guidance-7.5.png"
-        zoom 0.63
-
-    image bg lab_hallway:
-        "images/lab_hallway.png"
-        zoom 0.65
 
     transform wiggle:
         ease .1 xalign .2
@@ -107,15 +84,70 @@ init:
 
         repeat
 
+    # ==========
+    # = Images =
+    # ==========
+
+    image bg pregen 02:
+        "pregen_bg_02.png"
+        zoom 0.94
+
+    image black = "#000"
+    image white = "#fff"
+    #screens
+
+    image bg_start:
+        "images/start_bg.png"
+        zoom 0.94
+
+    image main_menu:
+        "gui/new_main_menu.png"
+        zoom 0.65
+        xalign .5
+        yalign .5
+
+    image bg room_with_incubator:
+        "modern_laboratory_room__lights_off__incubator_against_a_wall__anime_Seed-7720237_Steps-50_Guidance-7.5.png"
+        zoom 0.63
+
+    image bg lab_hallway:
+        "images/lab_hallway.png"
+        zoom 0.65
+
+    image bg preBedroom:
+        "images/apartment-bed-bedroom-night.png"
+        zoom 1
+    
+    image bg bedroom_window:
+        "images/view_overlooking_13th_century_village_from_a_castle_window__visual_novel__anime_Seed-7641440_Steps-50_Guidance-7.5.png"
+        zoom 0.65
+
+    image bg bedroom:
+        "images/13th_century_bedroom_of_a_princess__anime__visual_novel__in_a_castle_Seed-7654581_Steps-50_Guidance-7.5(1).png"
+        zoom 0.63
+
+    image bg bedroom_door_open:
+        "images/13th_century_bedroom_of_a_princess__anime__visual_novel__in_a_castle__door_open_Seed-7654581_Steps-50_Guidance-7.5(1).png"
+        zoom 0.63
+
+    # =========
+    # = Music =
+    # =========
 
     define music.main_menu = "audio/music/juhani-junkala-gentle-casual-gaming-loop.mp3"
     define music.loud_hum = "audio/fluoresent_light_hum_and_refrigerator-48831.mp3"
     define music.buzz = "audio/old-fan-56737.mp3"
+
+    # ==========
+    # = Sounds =
+    # ==========
 
     define pencil_short = "<to 1>audio/pencil-29272.mp3"
     define door_open = "<to 2>audio/door-opening-and-closing-18398.mp3"
     define door_close = "<from 4>audio/door-opening-and-closing-18398.mp3"
     define lock_beep = "<from 0.1 to 0.8>audio/heart-monitor-beep-96554.mp3"
     define lock_click = "<from .8 to 1.5>audio/door-lock-click-33617.mp3"
+    define rooster = "audio/rooster_crowing-7027.mp3"
+
 
 

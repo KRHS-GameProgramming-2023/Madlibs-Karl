@@ -74,7 +74,7 @@ label sotry1:
     play sound lock_beep
     pause 1
 
-    scene bg train with dissolve
+    scene its suprisingly hard to find a background of a train with dissolve
 
     'I take the shinjuku line home.'
     'The train is empty, and I sit in the corner, staring out the window.'
@@ -85,7 +85,7 @@ label sotry1:
 
     # fade screen to black
     scene black with dissolve
-    #play sound rooster_caw
+    play sound rooster
     'A rooster crows from outside the window'
     'I wake up, groggy and disoriented.'
     show bg bedroom at wakeWithBlink
@@ -100,15 +100,29 @@ label sotry1:
     'Im nearly knocked off balance by a newfound weightlessness.'
     'I peer out the window.'
     scene bg bedroom_window with dissolve
+    $ renpy.notify("im not paying an artist to make these backgrounds")
     char1 'What the hell?'
     char1 "Not to state the obvious, but this isn't Tokyo anymore."
 
     scene bg bedroom_door_open
-    'The door opens behind me and a girl wearing a Victorian style maid outfit walked in.'
+    $ gender = character[1][CharGender]
+    $ gender = gender.upper()
+    python:
+        if gender == "FEMALE":
+            outfit = "MAID OUTFIT"
+        else:
+            outfit = "BUTLER OUTFIT"
+    'The door opens behind me and a [gender] wearing a Victorian style [outfit] walks in.'
 
     show char2 at center
 
-    char0 'Good morning lady [char1]! I hope you slept well!~'
+
+    if character[1][CharSex] == "Female":
+        char0 'Good morning lady [char1]! I hope you slept well!~'
+    else:
+        char0 'Good morning madam [char1]. I hope you slept well.'
+    
+
     char0 'Breakfast will be ready in 20 minutes.'
     char1 'Thanks'
 
@@ -116,7 +130,9 @@ label sotry1:
 
     'I search for and find a mirror'
 
-    scene bg_with_shitty_code_aaaaaaaaa bedroom_mirror
+    call getAColour()
+    scene black
+    call screen dialog("im kinda running out of time so just pretend\nthere is a girl with " + _return + " hair onscreen", ok_action=Return())
     char1 "Damn it,{cps=1} {/cps}it's an isekai"
     python:
         if character[0][CharGender] == "Male":
@@ -125,6 +141,7 @@ label sotry1:
             prevGender = "previously [char1] actually looked differently but i really dont wanna go code something that makes this text box different from the current state but i may do it later if this is in the final version that sucks but there is alot of other things that i need to do in a very complicated manner because renpy was built to do visual novels and it doesn't like me turning it into madlibs"
     
     '{b}Isekai{/b}' '{i}Noun{/i} ({i}Japanese fiction{/i}) A genre of Japanese fiction involving everyday people transported to alternate fantasy or virtual worlds.\n{i}Verb{/i} ({i}fandom slang{/i}) To transport into an alternate world\n{i} from Wiktionary, the free dictionary{/i}'
+    scene bg bedroom with dissolve
     'I need to figure out something about the princess so im not exiled or something for taking over her body'
     'I find a orb in a drawer that ive decided to call {i}"the orb of skipping alot of text that nobody wants to read"{/i} because it skips alot of text that nobody wants to read'
     'anyway nuclear fusion or something and the orb has fused into my hand'

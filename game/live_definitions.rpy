@@ -111,7 +111,7 @@ label getAColour():
         jump getAColour
     else:
         if _return.lower() in validInputColours:
-            return
+            return _return.lower()
         else:
             call screen dialog(message='Colour "[_return]" is not a known colour', ok_action=Return())
             jump getAColour

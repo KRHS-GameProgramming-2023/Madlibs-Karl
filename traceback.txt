@@ -1,74 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 61, in script call
-    call first_run
-  File "game/firstRun.rpy", line 2, in script
-    call screen chaoticNoBorderText("ARE YOU READY FOR")
-  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "game/screens.rpy", line 1147, in execute
-    init -501 screen chaoticNoBorderText(displayText):
-  File "game/screens.rpy", line 1147, in execute
-    init -501 screen chaoticNoBorderText(displayText):
-  File "game/screens.rpy", line 1148, in execute
-    vbox:
-  File "game/screens.rpy", line 1151, in execute
-    text displayedText
-  File "game/screens.rpy", line 1151, in <module>
-    text displayedText
-NameError: name 'displayedText' is not defined
+  File "game/script.rpy", line 84, in script
+    if ignoreSwears == False:
+  File "game/script.rpy", line 84, in <module>
+    if ignoreSwears == False:
+NameError: name 'ignoreSwears' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 61, in script call
-    call first_run
-  File "game/firstRun.rpy", line 2, in script
-    call screen chaoticNoBorderText("ARE YOU READY FOR")
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 2232, in execute
-    self.call("execute")
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 2220, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/statements.py", line 281, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/exports.py", line 3181, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ui.py", line 299, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/display/core.py", line 3377, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/display/core.py", line 3810, in interact_core
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/display/screen.py", line 451, in visit_all
-    callback(self)
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/display/core.py", line 3810, in <lambda>
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/display/screen.py", line 462, in per_interact
-    self.update()
-  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/display/screen.py", line 653, in update
-    self.screen.function(**self.scope)
-  File "game/screens.rpy", line 1147, in execute
-    init -501 screen chaoticNoBorderText(displayText):
-  File "game/screens.rpy", line 1147, in execute
-    init -501 screen chaoticNoBorderText(displayText):
-  File "game/screens.rpy", line 1148, in execute
-    vbox:
-  File "game/screens.rpy", line 1151, in execute
-    text displayedText
-  File "game/screens.rpy", line 1151, in <module>
-    text displayedText
-NameError: name 'displayedText' is not defined
+  File "game/script.rpy", line 84, in script
+    if ignoreSwears == False:
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/ast.py", line 2115, in execute
+    if renpy.python.py_eval(condition):
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/python.py", line 1092, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/home/karl/Desktop/renpy-8.0.3-sdk/renpy/python.py", line 1085, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 84, in <module>
+    if ignoreSwears == False:
+NameError: name 'ignoreSwears' is not defined
 
 Linux-5.15.76-1-MANJARO-x86_64-with-glibc2.36 x86_64
 Ren'Py 8.0.3.22090809
 pain hell
-Fri Nov  4 23:29:56 2022
+Mon Nov  7 10:44:28 2022

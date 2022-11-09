@@ -40,32 +40,59 @@ label startThree:
     $ sotry = 3
     jump start
 
+label loadSwears:
+    python:
+        try:
+            swearsImport = renpy.file("hell.txt", encoding="utf-8")
+            swears = []
+            for i in swearsImport:
+                tempList = i.strip()
+                swears.append(tempList)
+            for i in range(0, len(swears)):
+                swears[i] = swears[i].lower()
+            del i
+            del swearsImport
+        except:
+            renpy.jump("swearsFailed")
+
+label swearsFailed:
+    if swearsFailedTimes < 10:
+        $ renpy.notify("Failed to load swears. Trying again.")
+        pause .5
+        $ swearsFailedTimes += 1
+        jump loadSwears
+    else:
+        call screen confirm(message="Failed to load swears.\nIgnore?", yes_action=Return(True), no_action=Return(False))
+        $ swearsFailedTimes = 0
+        if _return == True:
+            $ renpy.notify("Swears will not be censored.")
+            $ ignoreSwears = True
+            jump loadSwears
+        else:
+            return
+    $ renpy.notify("Swears failed to load.\nReturning to main menu.")
+    pause(1.5)
+    return
+
             
 
 # The game starts here.
 label start():
     scene main_menu
-    pause .5
-    $ swearsImport = renpy.file("hell.txt", encoding="utf-8")
-    python:
-        swears = []
-        for i in swearsImport:
-            tempList = i.strip()
-            swears.append(tempList)
-        for i in range(0, len(swears)):
-            swears[i] = swears[i].lower()
-        del i
-    $ del swearsImport
+    pause .5 
+    
+    if ignoreSwears == False:
+        jump loadSwears
 
-    if persistent.first_run == True:
-        call first_run from _call_first_run
-    else:
-        if config.developer == True:
-            $ renpy.notify("first_run skipped because persistent.first_run is False")
+    # if persistent.first_run == True:
+    #     call first_run from _call_first_run
+    # else:
+    #     if config.developer == True:
+    #         $ renpy.notify("first_run skipped because persistent.first_run is False")
 
 
     if sotry == 1:
-        call createCharsWithErrorC(10) from _call_createCharsWithErrorC
+        call createCharsWithErrorC(10)
         $ persistent.characters = character
         call sotry1 from _call_sotry1
 
